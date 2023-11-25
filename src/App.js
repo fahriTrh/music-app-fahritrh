@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import './css/reset.css'
+import './css/App.css'
+import Home from './pages/Home'
+import { Route, Routes } from 'react-router-dom'
+import Album from './pages/Album'
+import Artist from './pages/Artist'
+import AudioPlayer from './components/AudioPlayer'
 
-function App() {
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    <>
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/album/:id' element={<Album />}/>
+        <Route path='/artist/:id' element={<Artist />}/>
+      </Routes>
+      <AudioPlayer />
+    </>
+  )
 }
 
-export default App;
+export default App

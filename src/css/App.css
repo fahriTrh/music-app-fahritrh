@@ -1,0 +1,1560 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;&display=swap');
+
+* {
+    box-sizing: border-box;
+    scrollbar-width: none;
+    letter-spacing: .01rem;
+    transition: all .3s ease;
+}
+
+:root {
+    /* --primary: rgb(236, 236, 236); */
+    --primary: #fff;
+    --secondary: #b3b3b3;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background-color: rgb(22, 22, 22);
+    font-family: 'Manrope', sans-serif;
+    color: var(--primary);
+    padding-bottom: 12rem;
+    overflow-x: hidden;
+}
+
+header {
+    width: 100%;
+    height: auto;
+}
+
+.top-navbar {
+    width: 90%;
+    height: auto;
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-navbar .gear-icon {
+    transition: all ease .3s;
+}
+
+.top-navbar .gear-icon:hover {
+    cursor: pointer;
+    scale: 1.07;
+    fill: var(--secondary);
+}
+
+.top-navbar h1 {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+main {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    height: auto;
+}
+
+.recently-played,
+.original-and-exclusive {
+    width: 90%;
+    height: auto;
+    margin: auto;
+}
+
+.recently-played h1,
+.original-and-exclusive h1 {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.recently-played h1 {
+    margin-top: 3rem;
+}
+
+.card-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, min-content);
+    grid-template-rows: min-content;
+    column-gap: .1rem;
+    overflow-x: auto;
+    grid-auto-flow: column;
+}
+
+.card-container .card {
+    height: min-content;
+    width: min-content;
+    border-radius: 7px;
+    transition: all .3s ease;
+    padding: .5rem;
+    cursor: pointer;
+}
+
+main .card-container .card .play {
+    display: none;
+}
+
+.card .description {
+    display: none;
+}
+
+.card-container .card:hover {
+    background-color: rgba(128, 128, 128, .1);
+}
+
+.card .card-image {
+    width: 145px;
+    height: 145px;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    /* background-image: url(http://source.unsplash.com/200x200?music); */
+}
+
+div.card div.card-image-artist {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+}
+
+.card h1 {
+    font-size: .9rem;
+    margin-top: .8rem;
+    font-weight: 300;
+}
+
+.original-and-exclusive {
+    margin-top: 2rem;
+}
+
+footer {
+    width: 90%;
+    margin: 0 auto;
+}
+
+footer h1 {
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: .8rem;
+}
+
+footer h1:first-child {
+    margin-bottom: .8rem;
+}
+
+footer ul {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+footer ul li {
+    color: var(--secondary);
+    font-size: .9rem;
+}
+
+
+footer .social-media {
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    margin: 2.5rem 0;
+}
+
+footer .social-media li {
+    padding: .8rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(43, 43, 43, 0.7);
+    backdrop-filter: blur(8px);
+}
+
+footer hr {
+    border: none;
+    height: .1px;
+    background-color: var(--secondary);
+    border-radius: .1px;
+    opacity: .4;
+}
+
+footer .last-footer {
+    width: 80%;
+    margin-top: 3rem;
+    flex-direction: row;
+    gap: 1rem;
+    color: var(--secondary);
+    flex-wrap: wrap;
+}
+
+footer .last-footer li {
+    font-size: .87rem;
+}
+
+footer .lang-icon {
+    width: min-content;
+    height: min-content;
+    margin-top: 1.4rem;
+    padding: .5rem .9rem;
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    border: .1px solid var(--secondary);
+    border-radius: 20px;
+    color: var(--primary);
+    font-size: .8rem;
+}
+
+.navbar-bot-wrapp {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    z-index: 9999;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, .5), rgb(0, 0, 0), rgb(0, 0, 0));
+}
+
+.navbar-bot-wrapp .bottom-nav {
+    width: 80%;
+    height: auto;
+    margin: auto;
+}
+
+.bottom-nav ul {
+    width: 100%;
+    display: flex;
+    padding: .8rem 0;
+    justify-content: space-between;
+}
+
+.bottom-nav ul li {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    color: var(--secondary);
+    align-items: center;
+    font-size: .6rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.bottom-nav ul li .target {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: all .3s ease;
+}
+
+.audio-player {
+    /* display: none; */
+    display: flex;
+    position: fixed;
+    z-index: 99999;
+    bottom: 4.33rem;
+    right: 2.5%;
+    width: 95%;
+    padding: .5rem;
+    padding-right: 1.7rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3a4771;
+    border-radius: 5px;
+}
+
+.audio-player .actions-desk, .audio-player .actions-desk-left {
+    display: none;
+}
+
+.range {
+    position: absolute;
+    bottom: .5px;
+    left: 2px;
+    right: 2px;
+    height: 1px;
+}
+
+.range::-webkit-slider-thumb {
+    opacity: 0;
+}
+
+.range::-moz-range-progress {
+    background-color: var(--primary);
+}
+
+.currentTime {
+    display: none;
+}
+
+.audio-player .content {
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+
+.audio-player .image {
+    width: 2.3rem;
+    height: 2.3rem;
+    background-image: url(http://source.unsplash.com/50x50?musician);
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+}
+
+.audio-player .content .text {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.text .title {
+    font-size: .8rem;
+    letter-spacing: .01rem;
+    font-weight: 400;
+}
+
+.text .musician {
+    font-size: .8rem;
+}
+
+.audio-player .actions {
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.offcanvas {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background-color: #000;
+    color: var(--primary);
+    padding-left: 2.4rem;
+    transition: all .4s ease;
+    transition-delay: .2s;
+}
+
+.nav-desktop {
+    display: none;
+}
+
+.offcanvas .close-icon {
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 1.3rem;
+    right: 1.1rem;
+    cursor: pointer;
+}
+
+.offcanvas ul {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-weight: 600;
+}
+
+.offcanvas ul.personal {
+    font-size: 1.4rem;
+    margin-top: 4rem;
+}
+
+.offcanvas ul.personal li:first-child {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.offcanvas hr {
+    width: 18px;
+    height: 0;
+    border: 1.5px solid var(--primary);
+    margin: 2.4rem 0;
+}
+
+.translate {
+    transform: translateX(700px);
+}
+
+.opacity {
+    opacity: 0;
+}
+
+.left-navbar {
+    display: none;
+}
+
+.detail-header-mobile {
+    width: 100%;
+    height: auto;
+    background: rgba(128, 128, 128, .6);
+}
+
+.detail-header-mobile .detail-navbar-mobile {
+    width: 100%;
+    height: auto;
+}
+
+.detail-navbar-mobile .wrapp {
+    padding: 1.3rem 1.1rem;
+    margin: auto;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.detail-navbar-mobile .wrapp .back {
+    width: auto;
+    height: auto;
+}
+
+.detail-content {
+    width: 100%;
+    height: auto;
+    min-height: 30vh;
+    padding-bottom: 1.5rem;
+    background: linear-gradient(rgba(128, 128, 128, .6), rgb(22, 22, 22));
+    margin-top: -3rem;
+    overflow-x: auto;
+}
+
+.detail-content .detail-image {
+    width: 150px;
+    height: 150px;
+    margin: 1.5rem auto;
+    background-size: cover;
+    background-position: center;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.detail-content .detail-text {
+    padding: 0 1.1rem;
+    margin: auto;
+    height: auto;
+}
+
+.detail-text .title {
+    color: var(--primary);
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.detail-text .sub-title {
+    margin-top: 1.3rem;
+    font-size: .8rem;
+    color: var(--primary);
+}
+
+.detail-text .logo {
+    margin: .6rem 0;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-size: .8rem;
+}
+
+.detail-text .duration {
+    color: var(--secondary);
+    font-size: .8rem;
+}
+
+.detail-content .actions {
+    /* width: 88%; */
+    padding: 0 1.1rem;
+    margin: auto;
+    margin-top: .8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-content .actions .action-one {
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+}
+
+.detail-content .action-one .play, .detail-content .actions .action-two .play {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #1ED760;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.detail-content .action-one .play {
+    display: none;
+}
+
+.next-list, .list-of-artist {
+    width: 100%;
+    height: auto;
+    padding: .8rem;
+}
+
+.next-list .list-card, .list-of-artist .list-card {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.list-of-artist .list-card {
+    position: relative;
+}
+
+.list-of-artist .list-card .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    z-index: 80;
+    /* background: #000; */
+}
+
+.list-of-artist .list-card:hover {
+    cursor: pointer;
+    background-color: rgba(128, 128, 128, .2);
+}
+
+.main-content {
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+}
+
+.main-content .list-image {
+    width: 48px;
+    height: 48px;
+    border-radius: 2px;
+    background-size: cover;
+    background-position: center;
+}
+
+.main-content .list-text {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    align-items: start;
+}
+
+.list-text h2 {
+    font-size: .9rem;
+    color: var(--primary);
+}
+
+.list-text h3 {
+    font-size: .7rem;
+    color: var(--secondary);
+}
+
+.list-card .option-icon {
+    width: auto;
+    height: auto;
+    margin-right: .7rem;
+    transform: rotate(90deg);
+}
+
+.next-list-desktop {
+    display: none;
+    width: 98%;
+    font-size: .8rem;
+    color: var(--secondary);
+    padding-left: .7rem;
+    font-weight: 400;
+}
+
+.next-list-desktop .top-bar, .next-list-desktop .list-card {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.next-list-desktop .top-bar {
+    border-bottom: 1px solid rgba(128, 128, 128, .3);
+    padding-bottom: .6rem;
+    margin-bottom: 1.5rem;
+}
+
+.next-list-desktop .top-bar div, .next-list-desktop .list-card div {
+    width: 20%;
+    text-align: start;
+}
+
+.next-list-desktop .top-bar div:first-child, .list-card div:first-child {
+    display: flex;
+    gap: .5rem;
+}
+
+.next-list-desktop .top-bar div:last-child, .list-card div:last-child {
+    text-align: end;
+}
+
+.next-list-desktop .top-bar div:first-child span:first-child {
+    margin-right: .5rem;
+}
+
+.next-list-desktop .list-card {
+    margin-top: .8rem;
+}
+
+.next-list-desktop .list-card .image-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.list-card .image-title .image {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+}
+
+.list-card .image-title .title-musician {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.image-title .title-musician .title {
+    font-size: .7rem;
+    /* color: var(--primary); */
+    color: var(--primary);
+    width: max-content;
+}
+
+.image-title .title-musician .musician {
+    font-size: .6rem;
+    color: var(--secondary);
+}
+
+.follow-icon {
+    padding: .5rem 1rem;
+    font-size: .8rem;
+    border: 1px solid var(--secondary);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.follow-icon span {
+    display: block;
+    transform: translateY(1px);
+}
+
+#image-artist {
+    border-radius: 50%;
+}
+
+.verified-artist {
+    display: none;
+    align-items: center;
+    gap: .5rem;
+    font-size: .8rem;
+    color: var(--primary);
+}
+
+/* Style for detail-page */
+
+.about-musician {
+    display: none;
+}
+
+/* Break points */
+
+@media (max-width: 375px) {
+
+    .recently-played h1,
+    .original-and-exclusive h1 {
+        font-size: 1rem;
+    }
+
+    .card h1 {
+        font-size: .86rem;
+    }
+
+    .bottom-nav ul li {
+        font-size: .7rem;
+        gap: .7rem;
+    }
+}
+
+@media (min-width: 400px) {
+    .detail-content .detail-image {
+        width: 170px;
+        height: 170px;
+        margin-bottom: 1.2;
+    }
+}
+
+@media (min-width: 576px) {
+    .detail-content .detail-image {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 1.2;
+    }
+}
+
+@media (min-width: 600px) {
+    .detail-content .detail-image {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 1.2;
+    }
+}
+
+@media (min-width: 758px) {
+    body {
+        background-color: #000;
+    }
+
+    .recently-played,
+    .original-and-exclusive {
+        padding: 1rem;
+    }
+
+    .offcanvas {
+        display: none;
+    }
+
+    .top-navbar {
+        display: none;
+    }
+
+    .navbar-bot-wrapp {
+        display: none;
+    }
+
+    .audio-player {
+        width: 98%;
+        left: 1%;
+        padding: .8rem;
+        bottom: 0;
+        background-color: #000;
+    }
+
+    .playing {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+
+    .currentTime {
+        display: block;
+        font-size: .8rem;
+        color: var(--secondary);
+    }
+
+    .range {
+        display: none;   
+    }
+
+    .audio-player .content .image {
+        width: 55px;
+        height: 50px;
+    }
+
+    .audio-player .content .title {
+        font-weight: 700;
+    }
+
+    .audio-player .content .musician {
+        color: var(--secondary);
+    }
+
+    .audio-player .actions {
+        display: none;
+    }
+
+    .audio-player .actions-desk {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .3rem;
+    }
+
+    .audio-player .actions-desk .action-icons, .audio-player .actions-desk-left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .audio-player .actions-desk-left {
+        gap: .8rem;
+    }
+    
+    .audio-player .actions-desk .action-icons {
+        gap: 1.3rem;
+    }
+
+    .actions-desk .action-icons .play-icon {
+        cursor: pointer;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background: var(--primary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .actions-desk .action-icons .play-icon:hover {
+        transform: scale(1.1);
+    }
+
+    .range-desk, .range-desk-left {
+        width: 260px;
+        height: 3px;
+        border-radius: 3px;
+    }
+
+    .actions-desk-left .speaker-icon {
+        display: flex;
+        align-items: center;
+        gap: .8rem;
+    }
+
+    .range-desk-left {
+        width: 70px;
+    }
+
+    .range-desk::-webkit-slider-thumb, .range-desk-left::-webkit-slider-thumb {
+        opacity: 0;
+    }
+
+    .beauty-desktop {
+        width: 100%;
+        height: auto;
+        padding: .8rem;
+        margin-bottom: 2rem;
+        display: flex;
+        gap: .5rem;
+        position: fixed;
+    }
+
+    .beauty-desktop main {
+        height: 85.6vh;
+        min-height: 540px;
+        margin: 0;
+        padding: 0;
+        padding: 1rem;
+        background-color: rgba(128, 128, 128, .2);
+        border-radius: 10px;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    .beauty-desktop main .nav-desktop {
+        top: .8rem;
+        left: 5.9rem;
+        position: fixed;
+        z-index: 80;
+        height: 4rem;
+        border-radius: 10px 10px 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all .3s ease;
+    }
+
+    .nav-desk-effect {
+        background: rgba(27, 27, 27, 1);
+    }
+
+    .beauty-desktop main .nav-desktop .next-prev-page{
+        width: auto;
+        height: auto;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        margin-left: 1.4rem;
+    }
+
+    .beauty-desktop main .nav-desktop .next-prev-page li, .nav-desktop .service-group .notification, .nav-desktop .service-group .profile {
+        width: 2rem;
+        height: 2rem;
+        background-color: rgba(14, 14, 14, .7);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .beauty-desktop main .nav-desktop .next-prev-page li:hover {
+        cursor: pointer;
+        opacity: .8;
+    }
+
+    .nav-desktop .service-group .notification, .nav-desktop .service-group .profile {
+        background-color: rgba(14, 14, 14, .9);
+    }
+
+    .beauty-desktop main .nav-desktop .service-group {
+        width: auto;
+        height: auto;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        margin-right: 1.4rem;
+    }
+
+    .nav-desktop .service-group .premium, .nav-desktop .service-group .install-app {
+        width: auto;
+        height: auto;
+        padding: .5rem 1rem;
+        text-align: center;
+        border: none;
+        border-radius: 20px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .nav-desktop .service-group .premium {
+        background-color: var(--primary);
+        color: #000;
+    }
+
+    .nav-desktop .service-group .install-app {
+        background-color: #000;
+        color: var(--primary);
+        align-items: center;
+        gap: .5rem;
+        display: none;
+    }
+
+    .beauty-desktop main .card-container {
+        gap: .8rem;
+    }
+
+    .beauty-desktop main .card-container .card {
+        padding: .8rem;
+        height: 250px;
+        background-color: rgba(128, 128, 128, .1);
+        position: relative;
+    }
+
+    .card-container .card:hover .play {
+        display: flex;
+        opacity: 1;
+        bottom: 6.3rem;
+    }
+
+    .card .card-image  {
+        width: 155px;
+    }
+
+    main .card-container .card .play {
+        position: absolute;
+        bottom: 6rem;
+        right: 1.5rem;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        background-color: #1ed760;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: all .3s ease;
+    }
+
+    .play-icon-effect {
+        animation: play-icon-effect .1s ease forwards;
+    }
+    
+    .play-icon-effect2 {
+        animation: play-icon-effect2 .1s ease forwards;
+    }
+
+    .card-container .card .play .play-icon {
+        margin-top: 1px;
+    }
+    
+    .beauty-desktop main .card-container .card:hover {
+        background-color: rgba(128, 128, 128, .2);
+    }
+
+    .card-container .card .description,
+    .card-container .card .description .card-title {
+        font-weight: 600;
+    }
+
+    .card-container .card .card-title, .card-container .card .description {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .card-container .card .description {
+        display: block;
+        margin-top: -14px;
+        line-height: 1rem;
+        color: var(--secondary);
+        font-size: .8rem;
+        line-height: 1rem;
+    }
+
+    .beauty-desktop main footer {
+        display: block;
+        width: 98%;
+        display: flex;
+        column-gap: 4.5rem;
+        flex-wrap: wrap;
+    }
+
+    .recently-played,
+    .original-and-exclusive {
+        width: 100%;
+    }
+
+    .beauty-desktop .left-navbar {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        height: 85.6vh;
+        min-height: 540px;
+        gap: .5rem;
+    }
+
+    .beauty-desktop .left-navbar ul {
+        padding: 1.3rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 8px;
+        background-color: rgba(128, 128, 128, .2);
+        gap: 1rem;
+    }
+
+    .beauty-desktop .left-navbar ul:first-child {
+        height: auto;
+        width: auto;
+    }
+
+    .beauty-desktop .left-navbar ul:last-child {
+        height: 100%;
+        width: auto;
+    }
+
+    .beauty-desktop .about-musician {
+        /* display: hidden; */
+        display: block;
+        width: 380px;
+        height: 85.6vh;
+        min-height: 540px;
+        border-radius: 10px;
+        background-color: rgba(128, 128, 128, .2);
+        padding: 1rem;
+        overflow-y: auto;
+    }
+
+    .about-musician .top-banner {
+        top: .8rem;
+        right: .8rem;
+        position: fixed;
+        z-index: 80;
+        height: 4rem;
+        border-radius: 10px 10px 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all .3s ease;
+        padding: 1rem;
+    }
+
+    .top-banner h1 {
+        font-size: .8rem;
+        font-weight: 600;
+    }
+
+    .top-banner .close-icon {
+        margin-right: .4rem;
+    }
+
+    .beauty-desktop .about-musician .music-card {
+        margin-top: 3.3rem;
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    
+    .about-musician .music-card .music-image {
+        background: url(http://source.unsplash.com/400x400?music);
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+        background-size: cover;
+        background-position: center;
+        text-align: start;
+    }
+
+    .about-musician .music-card .music-title {
+        margin-top: 1rem;
+        font-size: .9rem;
+        font-weight: 600;
+        color: var(--primary);
+        overflow-x: auto;
+    }
+
+    .about-musician .music-card .musician-name {
+        margin-top: .5rem;
+        font-size: .92rem;
+        color: var(--secondary);
+    }
+
+    .about-musician .music-card .actions {
+        width: auto;
+        height: auto;
+        padding: 1rem;
+        display: flex;
+        gap: .6rem;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(to right, rgba(27, 27, 27, .8), rgba(27, 27, 27, 1));
+    }
+
+    .about-musician .musician-card {
+        width: 100%;
+        height: auto;
+        margin-top: 2rem;
+        background: #ffffff12;
+        border-radius: 10px;
+    }
+
+    .musician-card .musician-image {
+        width: 100%;
+        height: 180px;
+        background: url(http://source.unsplash.com/400x400?music);
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .musician-card .wrapper {
+        width: 100%;
+        height: auto;
+        padding: .8rem;
+    }
+
+    .musician-card .musician-name {
+        color: var(--primary);
+        margin-top: .1rem;
+        font-size: 17px;
+    }
+    
+    .musician-card .listener {
+        width: auto;
+        height: auto;
+        margin-top: .8rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+
+    .musician-card .listener .monthly-listener {
+        color: var(--secondary);
+        font-size: 13px;
+        display: flex;
+        flex-direction: column;
+        gap: .4rem;
+    }
+
+    .musician-card .listener .follow {
+        width: auto;
+        height: auto;
+        padding: .3rem .6rem;
+        font-weight: 500;
+        font-size: 12px;
+        color: var(--primary);
+        border-radius: 15px;
+        border: .5px solid var(--secondary);
+        background-color: rgba(51, 51, 51, .1);
+    }
+
+    .musician-card .description {
+        font-size: 12px;
+        color: var(--secondary);
+        font-weight: 200;
+        line-height: 18px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .about-musician .next-card {
+        width: 100%;
+        height: auto;
+        padding: .8rem;
+        background: #ffffff12;
+        margin-top: 1rem;
+        border-radius: 10px;
+    }
+
+    .next-card .headings {
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: .4rem 0;
+    }
+
+    .next-card .headings h1 {
+        color: var(--primary);
+        font-size: .8rem;
+    }
+
+    .next-card .headings h3 {
+        color: var(--secondary);
+        font-size: .7rem;
+    }
+
+    .next-card .next-music {
+        width: auto;
+        height: auto;
+        display: flex;
+        align-items: center;
+        gap: .7rem;
+        margin-top: 1rem;
+    }
+
+    .next-music .image {
+        width: 45px;
+        height: 45px;
+        border-radius: 5px;
+        background-size: cover;
+        background-position: center;
+        background: url(http://source.unsplash.com/50x50?music);
+    }
+
+    .next-music .title-musician {
+        display: flex;
+        flex-direction: column;
+        gap: .3rem;
+    }
+
+    .title-musician h1 {
+        color: var(--primary);
+        font-size: .1rem;
+    }
+
+    .title-musician h2 {
+        color: var(--secondary);
+        font-size: .7rem;
+    }
+
+    .list-of-artist {
+        display: block;
+    }
+
+    footer {
+        display: none;
+    }
+
+    .detail-header-mobile {
+        display: none;
+    }
+
+    div.detail-content {
+        background: transparent;
+    }
+
+    main.detail-main .background-banner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 380px;
+        z-index: -999;
+        /* background: linear-gradient(rgba(241, 139, 139, 0.6), rgba(22, 22, 22, .6)); */
+    }
+
+    .desktop-butterfly {
+        width: auto;
+        height: auto;
+        margin-top: 8rem;
+        display: flex;
+        align-items: center;
+        gap: 0rem;
+        width: max-content;
+    }
+
+    .desktop-butterfly .detail-image {
+        width: 170px;
+        height: 170px;
+    }
+
+    .desktop-butterfly .detail-text .title {
+        font-size: 1.3rem;
+    }
+
+    .detail-content .action-one .play {
+        display: flex;
+    }
+
+    .detail-content .action-two .play {
+        display: none;
+        opacity: 0;
+    }
+
+    .detail-content .action-one .option-icon {
+        transform: rotate(90deg);
+    }
+
+    .action-one .share-icon {
+        display: none;
+    }
+
+    .next-list-desktop {
+        display: block;
+    }
+
+    .next-list-desktop .date-add {
+        display: none;
+    }
+    
+    .next-list-desktop .list-card .time {
+        display: none;
+    }
+
+    .verified-artist {
+        display: flex;
+    }
+}
+
+@media (min-width: 820px) {
+    .top-banner h1 {
+        font-size: .9rem;
+    }
+
+    .desktop-butterfly .detail-text .title {
+        font-size: 1.5rem;
+    }    
+
+    .range-desk {
+        width: 280px;
+    }
+}
+
+@media (min-width: 976px) {
+    .nav-desktop .service-group .install-app {
+        display: flex;
+    }
+
+    .top-banner h1 {
+        font-size: .97rem;
+    }
+
+    .about-musician .music-card .music-image {
+        height: 250px;
+    }
+
+    .about-musician .music-card .music-title {
+        margin-top: 1.2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .about-musician .music-card .musician-name {
+        margin-top: .5rem;
+        font-size: .95rem;
+        color: var(--secondary);
+    }
+
+    .about-musician .music-card .actions {
+        padding: 1rem;
+        gap: .6rem;
+    }
+
+    .about-musician .musician-card {
+        margin-top: 2rem;
+        background: #ffffff12;
+    }
+
+    .musician-card .musician-image {
+        height: 200px;
+    }
+
+    .musician-card .wrapper {
+        padding: 1rem;
+    }
+
+    .musician-card .musician-name {
+        color: var(--primary);
+        margin-top: .1rem;
+        font-size: 19px;
+    }
+    
+    .musician-card .listener {
+        margin-top: .8rem;
+        margin-bottom: 1rem;
+    }
+
+    .musician-card .listener .monthly-listener {
+        font-size: 15px;
+        gap: .4rem;
+    }
+
+    .musician-card .listener .follow {
+        padding: .4rem .8rem;
+        font-weight: 600;
+        border-radius: 15px;
+        border: .5px solid var(--secondary);
+    }
+
+    .musician-card .description {
+        font-size: 13px;
+        font-weight: 200;
+        line-height: 19px;
+    }
+
+    .about-musician .next-card {
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+
+    .desktop-butterfly .detail-text .title {
+        font-size: 2rem;
+    }   
+
+    .next-list-desktop .date-add {
+        display: block;
+    }
+    
+    .next-list-desktop .list-card .time {
+        display: block;
+    }
+
+    .range-desk {
+        width: 380px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .top-banner h1 {
+        font-size: .99rem;
+    }
+
+    .desktop-butterfly .detail-image {
+        /* width: 230px;
+        height: 230px;
+        border-radius: 7px; */
+    }
+
+    .desktop-butterfly .detail-text {
+        margin-bottom: 2.5rem;
+    }
+
+    .card-container .card {
+        width: 180px;
+        height: 200px;
+    }
+
+    .card-container .card .card-image {
+        margin-right: auto;
+        margin-left: auto;
+        width: 150px;
+        height: 150px;
+    }
+
+    .card-container .card .card-title {
+        font-size: 1.1rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .card-container .card .description {
+        font-size: .9rem;
+    }
+
+    .range-desk {
+        width: 400px;
+    }
+}
+
+@media (min-width: 1150px) {
+    .desktop-butterfly .detail-text .title {
+        font-size: 2.8rem;
+        font-weight: 800;
+    }
+
+    .desktop-butterfly .detail-text .sub-title {
+        font-size: .96rem;
+    }
+
+    .range-desk {
+        width: 470px;
+    }
+}
+
+/* Break points */
+
+/* Animation */
+
+@keyframes play-icon-effect {
+    0% {
+        opacity: 0;
+    }
+    
+    100% {
+        opacity: 1;
+        bottom: 6.3rem;
+    }
+}
+
+@keyframes play-icon-effect2 {
+    0% {
+        opacity: 1;
+    }
+    
+    100% {
+        opacity: 0;
+        bottom: 4rem;
+    }
+}
